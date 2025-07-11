@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 進撃の巨人 GitHub診断アプリ
 
-## Getting Started
+GitHubアカウントを分析して、進撃の巨人の9つの巨人のうちどれに最も適性があるかを診断するWebアプリケーションです。
 
-First, run the development server:
+## 🚀 機能
+
+- **GitHub API統合**: ユーザーのGitHubアカウントから公開データを取得
+- **巨人分類アルゴリズム**: 9つの巨人の特徴に基づいてスコアリング
+- **インタラクティブUI**: ローディング画面、結果表示、エラーハンドリング
+- **レスポンシブデザイン**: デスクトップ、タブレット、モバイルに対応
+- **SVGアイコン**: 各巨人の特徴的なビジュアル表現
+
+## 🏗️ 技術スタック
+
+- **フレームワーク**: Next.js 15.3.5
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS v4
+- **状態管理**: React Hooks
+- **API**: GitHub REST API（認証なし）
+
+## 🎯 分析する巨人
+
+1. **始祖の巨人** - バランス型リーダー
+2. **進撃の巨人** - 高アクティビティ型
+3. **超大型巨人** - 大規模開発型
+4. **鎧の巨人** - 堅実・安全性重視型
+5. **女型の巨人** - 多様性・万能型
+6. **獣の巨人** - 専門知識・古い技術型
+7. **顎の巨人** - 機動力・軽快型
+8. **戦槌の巨人** - 創造性・革新型
+9. **車力の巨人** - 継続性・持久力型
+
+## 🚀 開発環境のセットアップ
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# ビルド
+npm run build
+
+# 本番環境での起動
+npm start
+
+# リンティング
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+開発サーバーは [http://localhost:3000](http://localhost:3000) で起動します。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📊 分析指標
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+アプリケーションは以下の指標を使用してユーザーを分析します：
 
-## Learn More
+- **アカウント年数**: GitHub登録からの経過年数
+- **フォロワー数**: 影響力の指標
+- **リポジトリ数**: 活動量の指標
+- **言語分布**: 使用している言語の多様性
+- **リポジトリサイズ**: 開発プロジェクトの規模
+- **最新コミット**: 最近の活動度
+- **継続期間**: 開発活動の継続性
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 エラーハンドリング
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **404エラー**: 存在しないユーザー
+- **403エラー**: GitHub API制限
+- **500エラー**: サーバーエラー
+- **ネットワークエラー**: 接続問題
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📱 UI/UX
 
-## Deploy on Vercel
+- **ダークテーマ**: 進撃の巨人らしい重厚な雰囲気
+- **アニメーション**: ローディング中の巨人シルエット
+- **レスポンシブ**: すべてのデバイスで最適な表示
+- **アクセシビリティ**: 適切な色彩コントラストとフォーカス管理
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔒 セキュリティとプライバシー
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GitHub APIの公開データのみ使用
+- ユーザーデータの永続化なし
+- 認証情報の保存なし
+- クライアントサイドでの処理完結
+
+## 📦 デプロイ
+
+Vercelでの簡単なデプロイに対応：
+
+```bash
+# Vercelへのデプロイ
+vercel --prod
+```
+
+## 🤝 貢献
+
+このプロジェクトへの貢献を歓迎します。Issue報告やPull Requestをお待ちしています。
+
+## 📄 ライセンス
+
+MIT License
+
+## 📝 注意事項
+
+- このアプリケーションは娯楽目的で作成されており、実際の進撃の巨人の設定とは関係ありません
+- GitHub APIの制限により、1時間に60回までの診断が可能です
+- 診断結果は統計的な分析に基づいており、実際の開発能力や性格を示すものではありません
+
+---
+
+**進撃の巨人 © 諫山創・講談社／WIT STUDIO・Production I.G**
+# shingeki-classification
