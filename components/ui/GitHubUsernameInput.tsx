@@ -62,8 +62,8 @@ export const GitHubUsernameInput: React.FC<GitHubUsernameInputProps> = ({
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
-      <div className="bg-gray-900 rounded-lg p-8 shadow-2xl border border-gray-700">
+    <div className="w-full max-w-md mx-auto px-4">
+      <div className="bg-gray-900 rounded-lg p-6 sm:p-8 shadow-2xl border border-gray-700">
         <div className="text-center mb-6">
           <h2 className="text-2xl font-bold text-white mb-2">進撃の巨人診断</h2>
           <p className="text-gray-400">

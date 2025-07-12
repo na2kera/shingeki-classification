@@ -66,77 +66,75 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
     <div className="min-h-screen bg-gray-900 p-4">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">🔥 適性診断結果 🔥</h1>
-          <p className="text-xl text-gray-300 font-medium">@{user.login} のGitHub活動分析</p>
+        <div className="text-center mb-8 sm:mb-12 px-2">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide leading-tight">🔥 適性診断結果 🔥</h1>
+          <p className="text-lg sm:text-xl text-gray-300 font-medium">@{user.login} のGitHub活動分析</p>
         </div>
 
         {/* Main Result Card */}
-        <div className="bg-gray-800 rounded-lg p-8 mb-6 shadow-2xl border border-gray-700">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+        <div className="bg-gray-800 rounded-lg p-4 sm:p-6 md:p-8 mb-6 shadow-2xl border border-gray-700 mx-2 sm:mx-4 md:mx-0">
+          <div className="text-center mb-8 sm:mb-12 px-2">
+            <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
               あなたは<br className="block sm:hidden" />
               <span 
-                className="text-6xl lg:text-7xl font-extrabold bg-gradient-to-r bg-clip-text text-transparent drop-shadow-2xl"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r bg-clip-text text-transparent drop-shadow-2xl block sm:inline"
                 style={{ 
                   backgroundImage: `linear-gradient(45deg, ${primaryTitan.color}, ${primaryTitan.color}AA)` 
                 }}
               >
                 {result.primaryTitan}
               </span>
-              <br />の適性があります！
+              <br className="hidden sm:block" />の適性があります！
             </h2>
           </div>
 
           {/* Avatar + Titan Visualization */}
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 mb-12">
-            {/* Left side: Avatar and user info */}
-            <div className="flex flex-col items-center lg:items-end lg:flex-1">
+          <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 mb-8 sm:mb-12">
+            {/* User Avatar Section */}
+            <div className="flex flex-col items-center">
               <div className="relative mb-4">
                 <Image
                   src={user.avatar_url}
                   alt={`${user.login}のアバター`}
-                  width={120}
-                  height={120}
-                  className="rounded-full border-4 border-gray-700 shadow-lg"
+                  width={100}
+                  height={100}
+                  className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full border-4 border-gray-700 shadow-lg"
                 />
-                <div className="absolute -bottom-2 -right-2 bg-gray-900 rounded-full p-2 border-2 border-gray-600">
-                  <span className="text-2xl">{primaryTitan.icon}</span>
+                <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gray-900 rounded-full p-1 sm:p-2 border-2 border-gray-600">
+                  <span className="text-lg sm:text-xl md:text-2xl">{primaryTitan.icon}</span>
                 </div>
               </div>
-              <div className="text-center lg:text-right">
-                <p className="text-xl font-semibold text-white mb-1">@{user.login}</p>
+              <div className="text-center">
+                <p className="text-lg sm:text-xl font-semibold text-white mb-1">@{user.login}</p>
                 <p className="text-gray-400 text-sm">GitHub Developer</p>
               </div>
             </div>
 
-            {/* Center: Transformation arrow */}
-            <div className="flex items-center justify-center lg:mx-8">
-              <div className="flex flex-col lg:flex-row items-center gap-4">
-                <div className="text-4xl lg:text-6xl">⚡</div>
-                <div className="text-center lg:text-left">
-                  <p className="text-yellow-400 font-bold text-lg lg:text-xl">TRANSFORMATION</p>
-                  <p className="text-gray-400 text-sm">巨人化</p>
-                </div>
+            {/* Transformation Effect */}
+            <div className="flex flex-col items-center gap-3 sm:gap-4">
+              <div className="text-3xl sm:text-4xl md:text-5xl animate-pulse">⚡</div>
+              <div className="text-center">
+                <p className="text-yellow-400 font-bold text-base sm:text-lg md:text-xl">TRANSFORMATION</p>
+                <p className="text-gray-400 text-xs sm:text-sm">巨人化</p>
               </div>
             </div>
 
-            {/* Right side: Titan image */}
-            <div className="lg:flex-1 flex justify-center lg:justify-start">
+            {/* Titan Image */}
+            <div className="flex justify-center">
               <div className="relative">
                 <div className="relative z-10">
                   <Image
                     src={`/titans/${getTitanImageFile(result.primaryTitan)}`}
                     alt={`${result.primaryTitan}の体`}
-                    width={300}
-                    height={300}
-                    className="object-contain"
+                    width={250}
+                    height={250}
+                    className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 object-contain"
                     priority
                   />
                 </div>
                 {/* Glow effect */}
                 <div
-                  className="absolute inset-0 rounded-full opacity-20 blur-2xl"
+                  className="absolute inset-0 rounded-full opacity-20 blur-xl sm:blur-2xl"
                   style={{ backgroundColor: primaryTitan.color }}
                 ></div>
               </div>
@@ -144,25 +142,25 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
           </div>
 
           {/* Titan Name and Description */}
-          <div className="text-center mb-8">
-            <div className="mb-6">
-              <h3 className="text-3xl font-bold mb-3" style={{ color: primaryTitan.color }}>
+          <div className="text-center mb-6 sm:mb-8 px-2">
+            <div className="mb-4 sm:mb-6">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3" style={{ color: primaryTitan.color }}>
                 {result.primaryTitan}
               </h3>
-              <p className="text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-full sm:max-w-2xl md:max-w-3xl mx-auto px-2">
                 {result.explanation}
               </p>
             </div>
           </div>
 
           {/* Traits */}
-          <div className="mb-8">
-            <h4 className="text-xl font-semibold text-white text-center mb-4">巨人の特徴</h4>
-            <div className="flex flex-wrap justify-center gap-3">
+          <div className="mb-6 sm:mb-8 px-2">
+            <h4 className="text-lg sm:text-xl font-semibold text-white text-center mb-3 sm:mb-4">巨人の特徴</h4>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {primaryTitan.traits.map((trait, index) => (
                 <span
                   key={index}
-                  className="px-6 py-3 rounded-full text-white font-medium text-lg shadow-lg"
+                  className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-full text-white font-medium text-sm sm:text-base md:text-lg shadow-lg"
                   style={{ backgroundColor: primaryTitan.color + '80' }}
                 >
                   {trait}
@@ -173,15 +171,15 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
 
           {/* User Traits */}
           {result.userTraits.length > 0 && (
-            <div className="mb-8">
-              <h4 className="text-xl font-semibold text-white text-center mb-4">
+            <div className="mb-6 sm:mb-8 px-2">
+              <h4 className="text-lg sm:text-xl font-semibold text-white text-center mb-3 sm:mb-4">
                 あなたの開発スタイル
               </h4>
-              <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
                 {result.userTraits.map((trait, index) => (
                   <span
                     key={index}
-                    className="px-5 py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full text-base font-medium shadow-lg"
+                    className="px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-full text-sm sm:text-base font-medium shadow-lg"
                   >
                     {trait}
                   </span>
@@ -191,28 +189,28 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
           )}
 
           {/* Score Summary */}
-          <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl p-8 mb-8 border-2 border-gray-600">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-              <div className="text-center md:text-left">
-                <h3 className="text-2xl font-bold text-white mb-2">巨人適性度</h3>
-                <p className="text-gray-300 text-base">
+          <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 border-2 border-gray-600 mx-2">
+            <div className="flex flex-col items-center gap-4 sm:gap-6">
+              <div className="text-center">
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">巨人適性度</h3>
+                <p className="text-gray-300 text-sm sm:text-base px-2">
                   全9種の巨人の中での<span className="font-semibold" style={{ color: primaryTitan.color }}>{result.primaryTitan}</span>への適性度
                 </p>
               </div>
               <div className="text-center">
-                <div className="mb-2">
+                <div className="mb-3 sm:mb-4">
                   <div
-                    className={`text-5xl font-bold ${getScoreColor(
+                    className={`text-4xl sm:text-5xl md:text-6xl font-bold ${getScoreColor(
                       result.scores[0].score
                     )} drop-shadow-lg`}
                   >
                     {formatScore(result.scores[0].score)}
                   </div>
-                  <div className="text-lg text-gray-300 font-medium">/ 100点</div>
+                  <div className="text-base sm:text-lg text-gray-300 font-medium">/ 100点</div>
                 </div>
-                <div className="w-32 bg-gray-800 rounded-full h-3 mx-auto">
+                <div className="w-24 sm:w-32 md:w-40 bg-gray-800 rounded-full h-2 sm:h-3 mx-auto">
                   <div 
-                    className={`h-3 rounded-full transition-all duration-500 ${getScoreBarColor(result.scores[0].score)}`}
+                    className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${getScoreBarColor(result.scores[0].score)}`}
                     style={{ width: `${result.scores[0].score}%` }}
                   ></div>
                 </div>
@@ -273,34 +271,36 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
           )}
 
           {/* Share Preview */}
-          <div className="bg-gray-700 rounded-xl p-6 mb-6">
-            <h4 className="text-lg font-semibold text-white mb-4 text-center">シェア用プレビュー</h4>
-            <div className="bg-gray-800 rounded-lg p-4 border border-gray-600">
-              <div className="flex items-start space-x-4">
+          <div className="bg-gray-700 rounded-xl p-4 sm:p-6 mb-6 mx-2">
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 text-center">シェア用プレビュー</h4>
+            <div className="bg-gray-800 rounded-lg p-3 sm:p-4 border border-gray-600">
+              <div className="flex items-start space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-2xl font-bold">進</span>
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+                    <span className="text-white text-lg sm:text-xl md:text-2xl font-bold">進</span>
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-white font-semibold text-lg mb-1">進撃の巨人 GitHub適性診断</div>
-                  <div className="text-gray-300 text-sm mb-2">
+                  <div className="text-white font-semibold text-sm sm:text-base md:text-lg mb-1">進撃の巨人 GitHub適性診断</div>
+                  <div className="text-gray-300 text-xs sm:text-sm mb-2 leading-relaxed">
                     私は「{result.primaryTitan}」でした！あなたはなんの巨人に適性があるか診断してみましょう。
                   </div>
-                  <div className="text-blue-400 text-sm">{typeof window !== 'undefined' ? window.location.origin : 'https://shingeki-classification.vercel.app'}</div>
+                  <div className="text-blue-400 text-xs sm:text-sm break-all">
+                    {typeof window !== 'undefined' ? window.location.origin : 'https://shingeki-classification.vercel.app'}
+                  </div>
                 </div>
               </div>
             </div>
-            <p className="text-gray-400 text-sm text-center mt-3">
+            <p className="text-gray-400 text-xs sm:text-sm text-center mt-3">
               このプレビューのような形でリンクが表示されます
             </p>
           </div>
 
           {/* Actions */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4 px-4 sm:px-2">
             <button
               onClick={onReset}
-              className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold text-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-lg transform hover:scale-105"
+              className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold text-base sm:text-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-lg active:scale-95 sm:hover:scale-105"
             >
               🔄 もう一度適性診断する
             </button>
@@ -328,7 +328,7 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
                 }
               }}
               id="share-button"
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg transform hover:scale-105"
+              className="w-full px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-base sm:text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg active:scale-95 sm:hover:scale-105"
             >
               📋 結果をコピー
             </button>
