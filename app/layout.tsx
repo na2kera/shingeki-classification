@@ -13,7 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "進撃の巨人 GitHub診断",
+  metadataBase: new URL('https://shingeki-classification.vercel.app'),
+  title: "進撃の巨人 GitHub適性診断",
   description:
     "GitHubアカウントを分析して、進撃の巨人の9つの巨人のうちどれに最も適性があるかを診断します",
   keywords: [
@@ -33,26 +34,29 @@ export const metadata: Metadata = {
     apple: "/meta.png",
   },
   openGraph: {
-    title: "進撃の巨人 GitHub診断",
+    title: "進撃の巨人 GitHub適性診断",
     description:
       "GitHubアカウントを分析して、進撃の巨人の9つの巨人のうちどれに最も適性があるかを診断します",
     type: "website",
     locale: "ja_JP",
+    siteName: "進撃の巨人 GitHub適性診断",
+    url: "https://shingeki-classification.vercel.app",
     images: [
       {
         url: "/meta.png",
         width: 1200,
         height: 630,
-        alt: "進撃の巨人 GitHub診断 OGP画像",
+        alt: "進撃の巨人 GitHub適性診断 - あなたはどの巨人の適性がありますか？",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "進撃の巨人 GitHub診断",
+    title: "進撃の巨人 GitHub適性診断",
     description:
       "GitHubアカウントを分析して、進撃の巨人の9つの巨人のうちどれに最も適性があるかを診断します",
     images: ["/meta.png"],
+    creator: "@shingeki_diagnosis",
   },
 };
 

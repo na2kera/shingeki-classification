@@ -272,6 +272,30 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
             </div>
           )}
 
+          {/* Share Preview */}
+          <div className="bg-gray-700 rounded-xl p-6 mb-6">
+            <h4 className="text-lg font-semibold text-white mb-4 text-center">シェア用プレビュー</h4>
+            <div className="bg-gray-800 rounded-lg p-4 border border-gray-600">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+                    <span className="text-white text-2xl font-bold">進</span>
+                  </div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-white font-semibold text-lg mb-1">進撃の巨人 GitHub適性診断</div>
+                  <div className="text-gray-300 text-sm mb-2">
+                    私は「{result.primaryTitan}」でした！あなたはなんの巨人に適性があるか診断してみましょう。
+                  </div>
+                  <div className="text-blue-400 text-sm">{typeof window !== 'undefined' ? window.location.origin : 'https://shingeki-classification.vercel.app'}</div>
+                </div>
+              </div>
+            </div>
+            <p className="text-gray-400 text-sm text-center mt-3">
+              このプレビューのような形でリンクが表示されます
+            </p>
+          </div>
+
           {/* Actions */}
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
@@ -281,22 +305,32 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
               🔄 もう一度適性診断する
             </button>
             <button
-              onClick={() => {
-                const text = `私は進撃の巨人 GitHub適性診断で「${result.primaryTitan}」の適性がありました！\n\n${result.explanation}\n\n#進撃の巨人適性診断 #GitHub`;
-                if (navigator.share) {
-                  navigator.share({
-                    title: "進撃の巨人 GitHub適性診断結果",
-                    text: text,
-                    url: window.location.href,
-                  });
-                } else {
-                  navigator.clipboard.writeText(text);
-                  alert("結果をクリップボードにコピーしました！");
+              onClick={async () => {
+                const appUrl = typeof window !== 'undefined' ? window.location.origin : 'https://shingeki-classification.vercel.app';
+                const shareText = `私は「${result.primaryTitan}」でした！あなたはなんの巨人に適性があるか診断してみましょう。\n\n${appUrl}`;
+                
+                try {
+                  await navigator.clipboard.writeText(shareText);
+                  // Show success message
+                  const button = document.getElementById('share-button');
+                  if (button) {
+                    const originalText = button.innerHTML;
+                    button.innerHTML = '✅ コピーしました！';
+                    button.style.backgroundColor = '#10b981';
+                    setTimeout(() => {
+                      button.innerHTML = originalText;
+                      button.style.backgroundColor = '';
+                    }, 2000);
+                  }
+                } catch (err) {
+                  console.error('Failed to copy text: ', err);
+                  alert('コピーに失敗しました。手動でコピーしてください。');
                 }
               }}
+              id="share-button"
               className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg transform hover:scale-105"
             >
-              📤 結果をシェア
+              📋 結果をコピー
             </button>
           </div>
         </div>
