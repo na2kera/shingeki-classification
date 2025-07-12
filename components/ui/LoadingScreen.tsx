@@ -10,7 +10,7 @@ const loadingSteps = [
   { message: 'GitHubデータを取得中...', duration: 1000 },
   { message: 'リポジトリを分析中...', duration: 1500 },
   { message: '巨人適性を判定中...', duration: 1000 },
-  { message: '結果を準備中...', duration: 500 }
+  { message: '適性診断結果を準備中...', duration: 500 }
 ];
 
 export const LoadingScreen: React.FC<LoadingScreenProps> = ({ username }) => {
@@ -142,7 +142,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ username }) => {
                 <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
               <span className="text-sm text-yellow-300">
-                分析には数秒かかる場合があります
+                適性診断には数秒かかる場合があります
               </span>
             </div>
           </div>

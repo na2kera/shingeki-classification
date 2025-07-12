@@ -67,7 +67,7 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">🔥 診断結果 🔥</h1>
+          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide">🔥 適性診断結果 🔥</h1>
           <p className="text-xl text-gray-300 font-medium">@{user.login} のGitHub活動分析</p>
         </div>
 
@@ -84,7 +84,7 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
               >
                 {result.primaryTitan}
               </span>
-              <br />です！
+              <br />の適性があります！
             </h2>
           </div>
 
@@ -196,7 +196,7 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
               <div className="text-center md:text-left">
                 <h3 className="text-2xl font-bold text-white mb-2">巨人適性度</h3>
                 <p className="text-gray-300 text-base">
-                  全9種の巨人の中での<span className="font-semibold" style={{ color: primaryTitan.color }}>{result.primaryTitan}</span>としての適性
+                  全9種の巨人の中での<span className="font-semibold" style={{ color: primaryTitan.color }}>{result.primaryTitan}</span>への適性度
                 </p>
               </div>
               <div className="text-center">
@@ -278,14 +278,14 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
               onClick={onReset}
               className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl font-semibold text-lg hover:from-red-700 hover:to-red-800 transition-all duration-200 shadow-lg transform hover:scale-105"
             >
-              🔄 もう一度診断する
+              🔄 もう一度適性診断する
             </button>
             <button
               onClick={() => {
-                const text = `私は進撃の巨人診断で「${result.primaryTitan}」でした！\n\n${result.explanation}\n\n#進撃の巨人診断 #GitHub`;
+                const text = `私は進撃の巨人 GitHub適性診断で「${result.primaryTitan}」の適性がありました！\n\n${result.explanation}\n\n#進撃の巨人適性診断 #GitHub`;
                 if (navigator.share) {
                   navigator.share({
-                    title: "進撃の巨人診断結果",
+                    title: "進撃の巨人 GitHub適性診断結果",
                     text: text,
                     url: window.location.href,
                   });

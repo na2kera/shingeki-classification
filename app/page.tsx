@@ -71,13 +71,13 @@ export default function Home() {
             <div className="w-full max-w-4xl mx-auto text-center">
               <div className="mb-8">
                 <h1 className="text-5xl font-bold text-white mb-4">
-                  <span className="text-red-500">進撃の巨人</span> GitHub診断
+                  <span className="text-red-500">進撃の巨人</span> GitHub適性診断
                 </h1>
                 <p className="text-xl text-gray-300 mb-2">
-                  あなたのGitHub活動を分析して、どの巨人に最も適性があるかを診断します
+                  あなたのGitHub活動を分析して、どの巨人への適性が最も高いかを診断します
                 </p>
                 <p className="text-gray-400">
-                  GitHub の公開データを使用して、あなたの開発スタイルを9つの巨人に分類します
+                  GitHub の公開データを使用して、あなたの開発スタイルから9つの巨人への適性を判定します
                 </p>
               </div>
               <GitHubUsernameInput onSubmit={handleUsernameSubmit} />
