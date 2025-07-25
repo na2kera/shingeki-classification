@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface LoadingScreenProps {
   username: string;
@@ -13,9 +14,22 @@ const loadingSteps = [
   { message: '適性診断結果を準備中...', duration: 500 }
 ];
 
+const titanImages = [
+  '/titans/agito.png',
+  '/titans/kemono.png',
+  '/titans/megata.png',
+  '/titans/oogata.png',
+  '/titans/sentsui.png',
+  '/titans/shingeki.png',
+  '/titans/shiso.png',
+  '/titans/syariki.png',
+  '/titans/yoroi.png'
+];
+
 export const LoadingScreen: React.FC<LoadingScreenProps> = ({ username }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [currentTitanIndex, setCurrentTitanIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -45,6 +59,20 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ username }) => {
     return () => clearInterval(stepTimer);
   }, []);
 
+  useEffect(() => {
+    const titanTimer = setInterval(() => {
+      setCurrentTitanIndex(prev => {
+        let newIndex;
+        do {
+          newIndex = Math.floor(Math.random() * titanImages.length);
+        } while (newIndex === prev && titanImages.length > 1);
+        return newIndex;
+      });
+    }, 800);
+
+    return () => clearInterval(titanTimer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md mx-auto">
@@ -54,28 +82,29 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ username }) => {
             <p className="text-gray-400">@{username} のGitHubアカウントを分析しています</p>
           </div>
 
-          {/* Titan Silhouette Animation */}
+          {/* Titan Image Animation */}
           <div className="relative mb-8 flex justify-center">
-            <div className="relative">
-              <svg width="120" height="120" viewBox="0 0 120 120" className="animate-pulse">
-                <defs>
-                  <linearGradient id="titanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{ stopColor: '#DC143C', stopOpacity: 0.8 }} />
-                    <stop offset="100%" style={{ stopColor: '#8B0000', stopOpacity: 0.8 }} />
-                  </linearGradient>
-                </defs>
+            <div className="relative w-32 h-32 flex items-center justify-center">
+              <div className="relative w-24 h-24 rounded-full bg-gray-800 border-2 border-red-600 overflow-hidden shadow-2xl">
+                <Image
+                  src={titanImages[currentTitanIndex]}
+                  alt="Titan"
+                  fill
+                  className="object-cover transition-all duration-500 ease-in-out transform hover:scale-110"
+                  style={{
+                    filter: 'brightness(0.9) contrast(1.1) saturate(1.2)'
+                  }}
+                  sizes="96px"
+                  priority
+                />
                 
-                {/* Titan silhouette */}
-                <rect x="40" y="30" width="40" height="65" fill="url(#titanGradient)" stroke="#DC143C" strokeWidth="2" rx="5" />
-                <rect x="30" y="45" width="15" height="30" fill="url(#titanGradient)" stroke="#DC143C" strokeWidth="2" rx="3" />
-                <rect x="75" y="45" width="15" height="30" fill="url(#titanGradient)" stroke="#DC143C" strokeWidth="2" rx="3" />
-                <rect x="45" y="95" width="12" height="20" fill="url(#titanGradient)" stroke="#DC143C" strokeWidth="2" rx="2" />
-                <rect x="63" y="95" width="12" height="20" fill="url(#titanGradient)" stroke="#DC143C" strokeWidth="2" rx="2" />
-                
-                {/* Glowing effects */}
-                <circle cx="60" cy="60" r="30" fill="none" stroke="#DC143C" strokeWidth="1" opacity="0.3" className="animate-ping" />
-                <circle cx="60" cy="60" r="25" fill="none" stroke="#FF4500" strokeWidth="1" opacity="0.5" className="animate-ping" style={{ animationDelay: '0.5s' }} />
-              </svg>
+                {/* Glowing overlay effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-red-900/30 via-transparent to-red-600/20 animate-pulse"></div>
+              </div>
+              
+              {/* Rotating ring effect */}
+              <div className="absolute inset-0 border-2 border-red-500/30 rounded-full animate-spin" style={{ animationDuration: '3s' }}></div>
+              <div className="absolute inset-2 border border-orange-400/20 rounded-full animate-spin" style={{ animationDuration: '2s', animationDirection: 'reverse' }}></div>
               
               {/* Steam effects */}
               <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
