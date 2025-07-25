@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   icons: {
-    icon: "/meta.png",
-    shortcut: "/meta.png",
-    apple: "/meta.png",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   openGraph: {
     title: "進撃の巨人 GitHub適性診断",
