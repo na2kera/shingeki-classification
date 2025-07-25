@@ -67,24 +67,30 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 px-2">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide leading-tight">🔥 適性診断結果 🔥</h1>
-          <p className="text-lg sm:text-xl text-gray-300 font-medium">@{user.login} のGitHub活動分析</p>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 tracking-wide leading-tight">
+            🔥 適性診断結果 🔥
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-300 font-medium">
+            @{user.login} のGitHub活動分析
+          </p>
         </div>
 
         {/* Main Result Card */}
         <div className="bg-gray-800 rounded-lg p-4 sm:p-6 md:p-8 mb-6 shadow-2xl border border-gray-700 mx-2 sm:mx-4 md:mx-0">
           <div className="text-center mb-8 sm:mb-12 px-2">
             <h2 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-              あなたは<br className="block sm:hidden" />
-              <span 
+              あなたは
+              <br className="block sm:hidden" />
+              <span
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold bg-gradient-to-r bg-clip-text text-transparent drop-shadow-2xl block sm:inline"
-                style={{ 
-                  backgroundImage: `linear-gradient(45deg, ${primaryTitan.color}, ${primaryTitan.color}AA)` 
+                style={{
+                  backgroundImage: `linear-gradient(45deg, ${primaryTitan.color}, ${primaryTitan.color}AA)`,
                 }}
               >
                 {result.primaryTitan}
               </span>
-              <br className="hidden sm:block" />の適性があります！
+              <br className="hidden sm:block" />
+              の適性があります！
             </h2>
           </div>
 
@@ -101,20 +107,28 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
                   className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full border-4 border-gray-700 shadow-lg"
                 />
                 <div className="absolute -bottom-1 -right-1 sm:-bottom-2 sm:-right-2 bg-gray-900 rounded-full p-1 sm:p-2 border-2 border-gray-600">
-                  <span className="text-lg sm:text-xl md:text-2xl">{primaryTitan.icon}</span>
+                  <span className="text-lg sm:text-xl md:text-2xl">
+                    {primaryTitan.icon}
+                  </span>
                 </div>
               </div>
               <div className="text-center">
-                <p className="text-lg sm:text-xl font-semibold text-white mb-1">@{user.login}</p>
+                <p className="text-lg sm:text-xl font-semibold text-white mb-1">
+                  @{user.login}
+                </p>
                 <p className="text-gray-400 text-sm">GitHub Developer</p>
               </div>
             </div>
 
             {/* Transformation Effect */}
             <div className="flex flex-col items-center gap-3 sm:gap-4">
-              <div className="text-3xl sm:text-4xl md:text-5xl animate-pulse">⚡</div>
+              <div className="text-3xl sm:text-4xl md:text-5xl animate-pulse">
+                ⚡
+              </div>
               <div className="text-center">
-                <p className="text-yellow-400 font-bold text-base sm:text-lg md:text-xl">TRANSFORMATION</p>
+                <p className="text-yellow-400 font-bold text-base sm:text-lg md:text-xl">
+                  TRANSFORMATION
+                </p>
                 <p className="text-gray-400 text-xs sm:text-sm">巨人化</p>
               </div>
             </div>
@@ -144,7 +158,10 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
           {/* Titan Name and Description */}
           <div className="text-center mb-6 sm:mb-8 px-2">
             <div className="mb-4 sm:mb-6">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3" style={{ color: primaryTitan.color }}>
+              <h3
+                className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3"
+                style={{ color: primaryTitan.color }}
+              >
                 {result.primaryTitan}
               </h3>
               <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-full sm:max-w-2xl md:max-w-3xl mx-auto px-2">
@@ -155,13 +172,15 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
 
           {/* Traits */}
           <div className="mb-6 sm:mb-8 px-2">
-            <h4 className="text-lg sm:text-xl font-semibold text-white text-center mb-3 sm:mb-4">巨人の特徴</h4>
+            <h4 className="text-lg sm:text-xl font-semibold text-white text-center mb-3 sm:mb-4">
+              巨人の特徴
+            </h4>
             <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
               {primaryTitan.traits.map((trait, index) => (
                 <span
                   key={index}
                   className="px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-full text-white font-medium text-sm sm:text-base md:text-lg shadow-lg"
-                  style={{ backgroundColor: primaryTitan.color + '80' }}
+                  style={{ backgroundColor: primaryTitan.color + "80" }}
                 >
                   {trait}
                 </span>
@@ -192,9 +211,18 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
           <div className="bg-gradient-to-r from-gray-700 to-gray-600 rounded-xl p-4 sm:p-6 md:p-8 mb-6 sm:mb-8 border-2 border-gray-600 mx-2">
             <div className="flex flex-col items-center gap-4 sm:gap-6">
               <div className="text-center">
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">巨人適性度</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">
+                  巨人適性度
+                </h3>
                 <p className="text-gray-300 text-sm sm:text-base px-2">
-                  全9種の巨人の中での<span className="font-semibold" style={{ color: primaryTitan.color }}>{result.primaryTitan}</span>への適性度
+                  全9種の巨人の中での
+                  <span
+                    className="font-semibold"
+                    style={{ color: primaryTitan.color }}
+                  >
+                    {result.primaryTitan}
+                  </span>
+                  への適性度
                 </p>
               </div>
               <div className="text-center">
@@ -206,11 +234,15 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
                   >
                     {formatScore(result.scores[0].score)}
                   </div>
-                  <div className="text-base sm:text-lg text-gray-300 font-medium">/ 100点</div>
+                  <div className="text-base sm:text-lg text-gray-300 font-medium">
+                    / 100点
+                  </div>
                 </div>
                 <div className="w-24 sm:w-32 md:w-40 bg-gray-800 rounded-full h-2 sm:h-3 mx-auto">
-                  <div 
-                    className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${getScoreBarColor(result.scores[0].score)}`}
+                  <div
+                    className={`h-2 sm:h-3 rounded-full transition-all duration-500 ${getScoreBarColor(
+                      result.scores[0].score
+                    )}`}
                     style={{ width: `${result.scores[0].score}%` }}
                   ></div>
                 </div>
@@ -272,21 +304,30 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
 
           {/* Share Preview */}
           <div className="bg-gray-700 rounded-xl p-4 sm:p-6 mb-6 mx-2">
-            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 text-center">シェア用プレビュー</h4>
+            <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 text-center">
+              シェア用プレビュー
+            </h4>
             <div className="bg-gray-800 rounded-lg p-3 sm:p-4 border border-gray-600">
               <div className="flex items-start space-x-3 sm:space-x-4">
                 <div className="flex-shrink-0">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-r from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                    <span className="text-white text-lg sm:text-xl md:text-2xl font-bold">進</span>
+                    <span className="text-white text-lg sm:text-xl md:text-2xl font-bold">
+                      進
+                    </span>
                   </div>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="text-white font-semibold text-sm sm:text-base md:text-lg mb-1">進撃の巨人 GitHub適性診断</div>
+                  <div className="text-white font-semibold text-sm sm:text-base md:text-lg mb-1">
+                    進撃の巨人 GitHub適性診断
+                  </div>
                   <div className="text-gray-300 text-xs sm:text-sm mb-2 leading-relaxed">
-                    私は「{result.primaryTitan}」でした！あなたはなんの巨人に適性があるか診断してみましょう。
+                    私は「{result.primaryTitan}
+                    」でした！あなたはなんの巨人に適性があるか診断してみましょう。
                   </div>
                   <div className="text-blue-400 text-xs sm:text-sm break-all">
-                    {typeof window !== 'undefined' ? window.location.origin : 'https://shingeki-classification.vercel.app'}
+                    {typeof window !== "undefined"
+                      ? window.location.origin
+                      : "https://shingeki-classification.vercel.app"}
                   </div>
                 </div>
               </div>
@@ -306,25 +347,28 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
             </button>
             <button
               onClick={async () => {
-                const appUrl = typeof window !== 'undefined' ? window.location.origin : 'https://shingeki-classification.vercel.app';
+                const appUrl =
+                  typeof window !== "undefined"
+                    ? window.location.origin
+                    : "https://shingeki-classification.vercel.app";
                 const shareText = `私は「${result.primaryTitan}」でした！あなたはなんの巨人に適性があるか診断してみましょう。\n\n${appUrl}`;
-                
+
                 try {
                   await navigator.clipboard.writeText(shareText);
                   // Show success message
-                  const button = document.getElementById('share-button');
+                  const button = document.getElementById("share-button");
                   if (button) {
                     const originalText = button.innerHTML;
-                    button.innerHTML = '✅ コピーしました！';
-                    button.style.backgroundColor = '#10b981';
+                    button.innerHTML = "✅ コピーしました！";
+                    button.style.backgroundColor = "#10b981";
                     setTimeout(() => {
                       button.innerHTML = originalText;
-                      button.style.backgroundColor = '';
+                      button.style.backgroundColor = "";
                     }, 2000);
                   }
                 } catch (err) {
-                  console.error('Failed to copy text: ', err);
-                  alert('コピーに失敗しました。手動でコピーしてください。');
+                  console.error("Failed to copy text: ", err);
+                  alert("コピーに失敗しました。手動でコピーしてください。");
                 }
               }}
               id="share-button"
@@ -338,7 +382,7 @@ export const DiagnosisResult: React.FC<DiagnosisResultProps> = ({
         {/* Footer */}
         <div className="text-center text-gray-500 text-sm">
           <p>このアプリはGitHubの公開データを使用して作成されています</p>
-          <p className="mt-2">© 2024 進撃の巨人診断アプリ</p>
+          <p className="mt-2">© 2025 進撃の巨人診断アプリ</p>
         </div>
       </div>
     </div>
